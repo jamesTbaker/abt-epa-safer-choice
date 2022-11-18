@@ -7,7 +7,7 @@ AWS.config.update({ region: "us-east-1" });
 // Create DynamoDB document client
 const dynamoDB = new AWS.DynamoDB.DocumentClient({ apiVersion: "2012-08-10" });
 
-const userTable = "user-table";
+const userTable = "simple-apps--users";
 
 exports.getUser = async (username) => {
 	const params = {

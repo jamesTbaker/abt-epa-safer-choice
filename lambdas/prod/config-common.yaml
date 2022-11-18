@@ -10,6 +10,8 @@ provider:
   name: aws
   runtime: nodejs16.x
   profile: simple-apps--programmatic-user
+  iam:
+    role: arn:aws:iam::974205701011:role/full-access--dynamo-db--cloudwatch
 jwtSecret: ${ssm:simple-apps--jwt-secret}
 endpoints:
   simple-apps:

@@ -10,7 +10,7 @@ custom:
     app: simple-apps
     service: user-authentication
     memorySize: 256
-    timeout: 30
+    timeout: 10
 
 
 functions:
@@ -48,6 +48,8 @@ provider:
   stage: ${self:custom.file.custom.config.stage}
   region: us-east-1
   profile: ${self:custom.file.provider.profile}
+  iam:
+    role: ${self:custom.file.provider.iam.role}
   memorySize: ${self:custom.config.memorySize}
   timeout: ${self:custom.config.timeout}
   deploymentBucket:

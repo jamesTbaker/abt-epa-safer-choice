@@ -5,10 +5,26 @@
 # Test simple apps user register
 POST {{baseURI}}/register
 
+{
+    "name": "James Baker",
+    "username": "hi4@jbkr.me",
+    "password": "password"
+}
+
 #########
 # Test simple apps user login
 POST {{baseURI}}/login
 
+{
+    "username": "hi3@jbkr.me",
+    "password": "password"
+}
+
 #########
 # Test simple apps user verify
 POST {{baseURI}}/verify
+
+{
+    "username": "hi3@jbkr.me",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhpM0BqYmtyLm1lIiwibmFtZSI6IkphbWVzIEJha2VyIiwiaWF0IjoxNjY4Nzk3MzYyLCJleHAiOjE2Njg4MDA5NjJ9.n6yS4NyCbkquyY4xgGuDnKjyd_DjznUxaQc0eVwuLZY"
+}

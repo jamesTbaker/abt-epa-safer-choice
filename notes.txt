@@ -1,8 +1,0 @@
-Missing / To do
-* Forgot password / email address
-* Sign up
-* Email verification
-* MFA
-* Field validation
-* Social logins
-* Error handling
