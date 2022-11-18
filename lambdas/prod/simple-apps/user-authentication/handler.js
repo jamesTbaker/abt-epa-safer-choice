@@ -6,7 +6,7 @@ module.exports = {
 		// attempt to do what was requested
 		try {
 			// assign result to constant
-			const result = await UserAuthentication.register(JSON.parse(event.body));
+			const result = await UserAuthentication.registerUser(JSON.parse(event.body));
 			// respond with the result
 			return LambdaUtilities.createResponse({
 				'statusCode': 200,
@@ -29,7 +29,7 @@ module.exports = {
 		// attempt to do what was requested
 		try {
 			// assign result to constant
-			const result = await UserAuthentication.verify(JSON.parse(event.body));
+			const result = await UserAuthentication.verifyToken(JSON.parse(event.body));
 			// respond with the result
 			return LambdaUtilities.createResponse({
 				'statusCode': 200,
@@ -52,7 +52,7 @@ module.exports = {
 		// attempt to do what was requested
 		try {
 			// assign result to constant
-			const result = await UserAuthentication.login(JSON.parse(event.body));
+			const result = await UserAuthentication.loginUser(JSON.parse(event.body));
 			// respond with the result
 			return LambdaUtilities.createResponse({
 				'statusCode': 200,

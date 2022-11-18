@@ -2,13 +2,15 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"name": "user-authentication",
 			"type": "node",
 			"request": "launch",
-			"name": "Launch Program",
 			"skipFiles": [
-				"<node_internals>/**"
+				"<node_internals>/**",
+				"node_modules/**/*.js"
 			],
-			"program": "${workspaceFolder}/modules/lambda-utilities/_para/debug.js"
+			"program": "${workspaceFolder}/modules/user-authentication/_para/debug.js",
+			"console": "integratedTerminal"
 		},
 		{
 			"name": "lambda-utilities",
