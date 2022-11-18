@@ -1,0 +1,13 @@
+{
+	"name": "epa-safer-choice-poc--lambdas",
+	"version": "0.1.0",
+	"private": true,
+	"author": "Abt Associates",
+	"license": "UNLICENSED",
+	"scripts": {
+		"update": "rm -rf node_modules; rm package-lock.json; rm -rf .serverless; npm i"
+	},
+	"dependencies": {
+		"serverless-bundle": "^5.5.0"
+	}
+}

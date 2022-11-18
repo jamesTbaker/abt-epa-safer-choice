@@ -1,0 +1,14 @@
+@baseURI = https://tigq10pvb0.execute-api.us-east-1.amazonaws.com/prod/simple-apps/user-authentication
+
+
+#########
+# Test simple apps user register
+POST {{baseURI}}/register
+
+#########
+# Test simple apps user login
+POST {{baseURI}}/login
+
+#########
+# Test simple apps user verify
+POST {{baseURI}}/verify

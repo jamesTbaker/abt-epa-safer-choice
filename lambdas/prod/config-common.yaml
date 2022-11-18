@@ -1,0 +1,19 @@
+custom:
+  config:
+    # org: jbkrsls
+    frameworkVersion: '3'
+    stage: prod
+
+#-------------
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  profile: simple-apps--programmatic-user
+jwtSecret: ${ssm:simple-apps--jwt-secret}
+endpoints:
+  simple-apps:
+    user-authentication:
+      login:                simple-apps/user-authentication/login
+      register:             simple-apps/user-authentication/register
+      verify:               simple-apps/user-authentication/verify

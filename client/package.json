@@ -1,0 +1,39 @@
+{
+	"name": "epa-safer-choice-poc--client",
+	"version": "0.1.0",
+	"private": true,
+	"author": "Abt Associates",
+	"license": "UNLICENSED",
+	"dependencies": {
+		"@shoelace-style/shoelace": "^2.0.0-beta.83",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"react-scripts": "5.0.1"
+	},
+	"scripts": {
+		"update": "rm -rf node_modules; rm package-lock.json; rm -rf .serverless; npm i",
+		"dev": "react-scripts start",
+		"build": "react-scripts build"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"copy-webpack-plugin": "^11.0.0",
+		"mini-css-extract-plugin": "^2.7.0"
+	}
+}

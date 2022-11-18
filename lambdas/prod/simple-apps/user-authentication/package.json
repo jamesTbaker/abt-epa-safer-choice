@@ -1,0 +1,14 @@
+{
+	"name": "lambda--user-authentication",
+	"version": "0.1.0",
+	"author": "Abt Associates",
+	"license": "UNLICENSED",
+	"private": true,
+	"scripts": {
+		"update": "rm -rf node_modules; rm package-lock.json; rm -rf .serverless; npm i"
+	},
+	"dependencies": {
+		"lambda-utilities": "file:../../../../modules/lambda-utilities",
+		"user-authentication": "file:../../../../modules/user-authentication"
+	}
+}

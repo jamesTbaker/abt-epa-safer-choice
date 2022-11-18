@@ -1,0 +1,62 @@
+custom:
+  file: ${file(../../config-common.yaml)}
+  config:
+    webpack:
+    webpackConfig: './webpack.config.js'
+    includeModules: true
+    excludeFiles: ./_para/*
+# -------------------------------------------------------
+
+    app: simple-apps
+    service: user-authentication
+    memorySize: 256
+    timeout: 30
+
+
+functions:
+  HandleReturnUserRegisterRequest:
+    handler: handler.HandleReturnUserRegisterRequest
+    events:
+      - http:
+          path: ${self:custom.file.endpoints.${self:app}.${self:service}.register}
+          method: post
+          cors: true
+  HandleReturnUserVerifyRequest:
+    handler: handler.HandleReturnUserVerifyRequest
+    events:
+      - http:
+          path: ${self:custom.file.endpoints.${self:app}.${self:service}.verify}
+          method: post
+          cors: true
+  HandleReturnUserLoginRequest:
+    handler: handler.HandleReturnUserLoginRequest
+    events:
+      - http:
+          path: ${self:custom.file.endpoints.${self:app}.${self:service}.login}
+          method: post
+          cors: true
+
+# -------------------------------------------------------
+
+frameworkVersion: ${self:custom.file.custom.config.frameworkVersion}
+# org: ${self:custom.file.custom.config.org}
+app: ${self:custom.config.app}
+service: ${self:custom.config.service}
+provider:
+  name: ${self:custom.file.provider.name}
+  runtime: ${self:custom.file.provider.runtime}
+  stage: ${self:custom.file.custom.config.stage}
+  region: us-east-1
+  profile: ${self:custom.file.provider.profile}
+  memorySize: ${self:custom.config.memorySize}
+  timeout: ${self:custom.config.timeout}
+  deploymentBucket:
+    name: abt-jbkr-test-${self:provider.stage}-lambdas
+  environment:
+    NODE_PATH: "./:/opt/node_modules"
+    stage: ${self:provider.stage}
+    jwtSecret: ${self:custom.file.jwtSecret}
+package:
+  individually: true
+plugins:
+  - serverless-webpack

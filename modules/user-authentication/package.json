@@ -1,0 +1,15 @@
+{
+	"name": "user-authentication",
+	"version": "0.1.0",
+	"author": "Abt Associates",
+	"license": "UNLICENSED",
+	"private": true,
+	"scripts": {
+		"update": "rm -rf node_modules; rm package-lock.json; rm -rf .serverless; npm i"
+	},
+	"dependencies": {
+		"aws-sdk": "^2.1256.0",
+		"bcryptjs": "^2.4.3",
+		"jsonwebtoken": "^8.5.1"
+	}
+}
