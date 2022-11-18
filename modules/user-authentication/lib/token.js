@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken';
 
 export const returnNewToken = (userInfo) => {
-	console.log(`returnNewToken userInfo = ${JSON.stringify(userInfo)}`);
 	// if user info is missing
 	if (!userInfo) {
 		// return null
@@ -13,16 +12,11 @@ export const returnNewToken = (userInfo) => {
 	});
 };
 export const returnTokenIsVerified = (username, token) => {
-	console.log(`username = ${username}`);
-	console.log(`token = ${token}`);
-	console.log(`process.env.jwtSecret = ${process.env.jwtSecret}`);
 	// return the result of verifying the token
 	return jwt.verify(
 		token,
 		process.env.jwtSecret,
 		(error, response) => {
-			console.log(`jwt Error = ${error}`);
-			console.log(`jwt Response = ${JSON.stringify(response)}`);
 			// if there is an error
 			if (error) {
 				// return a reponse object indicating that the token is not valid

@@ -52,8 +52,6 @@ export const registerUser = async ({ name, username, password }) => {
 	};
 };
 export const loginUser = async ({ username, password }) => {
-	console.log(`username = ${username}`);
-	console.log(`password = ${password}`);
 	// if any of the required fields are missing
 	if (!username || !password) {
 		// return a reponse object
@@ -64,7 +62,6 @@ export const loginUser = async ({ username, password }) => {
 	}
 	// attempt to find the user in the db
 	const userQueryResult = await returnUserFromDB(username);
-	console.log(`userQueryResult = ${JSON.stringify(userQueryResult)}`);
 	// if the user was not found
 	if (!userQueryResult.success || !userQueryResult.item) {
 		// return a response object
@@ -86,7 +83,6 @@ export const loginUser = async ({ username, password }) => {
 		username: userQueryResult.item.username,
 		name: userQueryResult.item.name,
 	};
-	console.log(`control.js userInfo = ${userInfo}`);
 	// generate a token
 	const token = returnNewToken(userInfo);
 	// return a response object
@@ -107,7 +103,6 @@ export const verifyToken = async ({ username, token }) => {
 	}
 	// attempt to verify the token
 	const tokenVerificationResult = returnTokenIsVerified(username, token);
-	console.log(`tokenVerificationResult = ${tokenVerificationResult}`);
 	// if the token is not verified and there is an error
 	if (
 		!tokenVerificationResult.verified &&
