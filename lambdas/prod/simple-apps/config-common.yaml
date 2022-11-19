@@ -1,6 +1,5 @@
 custom:
   config:
-    # org: jbkrsls
     frameworkVersion: '3'
     stage: prod
 

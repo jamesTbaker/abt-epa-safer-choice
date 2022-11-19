@@ -9,6 +9,7 @@
 	},
 	"dependencies": {
 		"lambda-utilities": "file:../../../../modules/lambda-utilities",
+		"serverless-webpack": "^5.10.0",
 		"user-authentication": "file:../../../../modules/user-authentication"
 	}
 }

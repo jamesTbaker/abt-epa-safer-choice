@@ -2,73 +2,109 @@ const UserAuthentication = require('user-authentication');
 const LambdaUtilities = require('lambda-utilities');
 
 module.exports = {
-	'HandleReturnUserRegisterRequest': async (event, context) => {
+	'handleReturnUserRegisterRequest': async (event, context) => {
 		// attempt to do what was requested
 		try {
 			// assign result to constant
 			const result = await UserAuthentication.registerUser(JSON.parse(event.body));
-			// respond with the result
-			return LambdaUtilities.createResponse({
+			// create a reponse object
+			const responseObject = LambdaUtilities.returnResponseObject({
 				'statusCode': 200,
 				'payload': result,
 				event,
 				context,
 			});
+			// log the response object
+			LambdaUtilities.log({
+				'incomingObject': { responseObject },
+			});
+			// return the response object
+			return responseObject;
 			// if an error occurred
 		} catch (error) {
-			// respond with corresponding information
-			return LambdaUtilities.createResponse({
-				'statusCode': 500,
+			// create a reponse object
+			const responseObject = LambdaUtilities.returnResponseObject({
+				'statusCode': 200,
 				'payload': error,
 				event,
 				context,
 			});
+			// log the response object
+			LambdaUtilities.log({
+				'incomingObject': { responseObject },
+			});
+			// return the response object
+			return responseObject;
 		}
 	},
-	'HandleReturnUserVerifyRequest': async (event, context) => {
+	'handleReturnUserVerifyRequest': async (event, context) => {
 		// attempt to do what was requested
 		try {
 			// assign result to constant
 			const result = await UserAuthentication.verifyToken(JSON.parse(event.body));
-			// respond with the result
-			return LambdaUtilities.createResponse({
+			// create a reponse object
+			const responseObject = LambdaUtilities.returnResponseObject({
 				'statusCode': 200,
 				'payload': result,
 				event,
 				context,
 			});
+			// log the response object
+			LambdaUtilities.log({
+				'incomingObject': { responseObject },
+			});
+			// return the response object
+			return responseObject;
 			// if an error occurred
 		} catch (error) {
-			// respond with corresponding information
-			return LambdaUtilities.createResponse({
-				'statusCode': 500,
+			// create a reponse object
+			const responseObject = LambdaUtilities.returnResponseObject({
+				'statusCode': 200,
 				'payload': error,
 				event,
 				context,
 			});
+			// log the response object
+			LambdaUtilities.log({
+				'incomingObject': { responseObject },
+			});
+			// return the response object
+			return responseObject;
 		}
 	},
-	'HandleReturnUserLoginRequest': async (event, context) => {
+	'handleReturnUserLoginRequest': async (event, context) => {
 		// attempt to do what was requested
 		try {
 			// assign result to constant
 			const result = await UserAuthentication.loginUser(JSON.parse(event.body));
-			// respond with the result
-			return LambdaUtilities.createResponse({
+			// create a reponse object
+			const responseObject = LambdaUtilities.returnResponseObject({
 				'statusCode': 200,
 				'payload': result,
 				event,
 				context,
 			});
+			// log the response object
+			LambdaUtilities.log({
+				'incomingObject': { responseObject },
+			});
+			// return the response object
+			return responseObject;
 			// if an error occurred
 		} catch (error) {
-			// respond with corresponding information
-			return LambdaUtilities.createResponse({
-				'statusCode': 500,
+			// create a reponse object
+			const responseObject = LambdaUtilities.returnResponseObject({
+				'statusCode': 200,
 				'payload': error,
 				event,
 				context,
 			});
+			// log the response object
+			LambdaUtilities.log({
+				'incomingObject': { responseObject },
+			});
+			// return the response object
+			return responseObject;
 		}
 	},
 };

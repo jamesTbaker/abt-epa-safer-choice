@@ -1,5 +1,5 @@
 custom:
-  file: ${file(../../config-common.yaml)}
+  file: ${file(../config-common.yaml)}
   config:
     webpack:
     webpackConfig: './webpack.config.js'
@@ -7,39 +7,38 @@ custom:
     excludeFiles: ./_para/*
 # -------------------------------------------------------
 
-    app: simple-apps
-    service: user-authentication
+    app: user-authentication
+    service: simple-apps
     memorySize: 256
-    timeout: 10
+    timeout: 5
 
 
 functions:
-  HandleReturnUserRegisterRequest:
-    handler: handler.HandleReturnUserRegisterRequest
+  handleReturnUserRegisterRequest:
+    handler: handler.handleReturnUserRegisterRequest
     events:
       - http:
-          path: ${self:custom.file.endpoints.${self:app}.${self:service}.register}
+          path: ${self:custom.file.endpoints.${self:service}.${self:app}.register}
           method: post
           cors: true
-  HandleReturnUserVerifyRequest:
-    handler: handler.HandleReturnUserVerifyRequest
+  handleReturnUserVerifyRequest:
+    handler: handler.handleReturnUserVerifyRequest
     events:
       - http:
-          path: ${self:custom.file.endpoints.${self:app}.${self:service}.verify}
+          path: ${self:custom.file.endpoints.${self:service}.${self:app}.verify}
           method: post
           cors: true
-  HandleReturnUserLoginRequest:
-    handler: handler.HandleReturnUserLoginRequest
+  handleReturnUserLoginRequest:
+    handler: handler.handleReturnUserLoginRequest
     events:
       - http:
-          path: ${self:custom.file.endpoints.${self:app}.${self:service}.login}
+          path: ${self:custom.file.endpoints.${self:service}.${self:app}.login}
           method: post
           cors: true
 
 # -------------------------------------------------------
 
 frameworkVersion: ${self:custom.file.custom.config.frameworkVersion}
-# org: ${self:custom.file.custom.config.org}
 app: ${self:custom.config.app}
 service: ${self:custom.config.service}
 provider:

@@ -6,8 +6,8 @@
 POST {{baseURI}}/register
 
 {
-    "name": "James Baker",
-    "username": "hi@jbkr.me",
+    "appID": "abc123",
+    "username": "hi2@jbkr.me",
     "password": "password"
 }
 
@@ -16,7 +16,8 @@ POST {{baseURI}}/register
 POST {{baseURI}}/login
 
 {
-    "username": "hi@jbkr.me",
+    "appID": "abc123",
+    "username": "hi2@jbkr.me",
     "password": "password"
 }
 
@@ -25,6 +26,7 @@ POST {{baseURI}}/login
 POST {{baseURI}}/verify
 
 {
-    "username": "hi@jbkr.me",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhpQGpia3IubWUiLCJuYW1lIjoiSmFtZXMgQmFrZXIiLCJpYXQiOjE2Njg4MTA1MTcsImV4cCI6MTY2ODgxNDExN30.DI45dG_31udp4wCjV6dwNksxKl2dJ7SYtZkZ6PE4FP0"
+    "appID": "abc123",
+    "username": "hi2@jbkr.me",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhpMkBqYmtyLm1lIiwibmFtZSI6IkphbWVzIEJha2VyIiwiaWF0IjoxNjY4ODgzMDk3LCJleHAiOjE2Njg4ODY2OTd9.GKQipdOJH4fSz0ii43NwjubkhTFjv1GeQe4Z705Jjx0"
 }

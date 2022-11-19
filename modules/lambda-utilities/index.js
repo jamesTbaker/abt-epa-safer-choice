@@ -48,7 +48,7 @@ export const log = ({ incomingObject }) => {
  * https://docs.aws.amazon.com/whitepapers/latest/serverless-architectures-lambda/the-context-object.html).
  * @returns {Object}
  */
-export const createResponse = ({
+export const returnResponseObject = ({
 	statusCode,
 	payload,
 	event,
@@ -66,9 +66,9 @@ export const createResponse = ({
 			context,
 		}),
 	};
-	// log the response
+	/* // log the response
 	log({
 		'incomingObject': { response },
-	});
+	}); */
 	return response;
 };
