@@ -3438,7 +3438,15 @@ p {
 	padding-bottom: 32px;
 	color: var(--abt--color--default--mega-contrast);
 }
-
+b {
+	font-weight: 600;
+}
+a {
+	color: var(--abt--color--interactive--high-contrast);
+}
+a:hover {
+	color: var(--abt--color--interactive--mega-contrast);
+}
 sl-button {
 	display: block;
 	width: fit-content;

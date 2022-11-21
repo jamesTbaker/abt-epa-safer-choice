@@ -35,10 +35,8 @@ export const AppParent = () => {
 				<SlDetails summary="Notes">
 					<h3>Meta</h3>
 					<ul>
-						<li>The architecture is a service called
-							<b>simple-apps</b>, inside of which is an app
-							called
-							<b>user-authenticaction</b>
+						<li>The architecture is a service called <b>simple-apps</b>, inside of which is an app
+							called <b>user-authenticaction</b>
 						</li>
 						<li>Processes run in Node.js on AWS Lambda and store data in DynamoDB</li>
 						<li>Permissions for deployment user and runtime role do no currently adhere to
@@ -48,8 +46,6 @@ export const AppParent = () => {
 							created again in a new home</li>
 						<li>Code is in <a href="https://github.com/jamesTbaker/abt-epa-safer-choice">a personal
 							GitHub repo</a>, at the moment; feel free to review</li>
-						<li>The code contains a little data that I&apos;d like to move to env variables; personally,
-							when scale makes it feasible, I try to keep all data, e.g., even db table names, </li>
 						<li>Uses Serverless framework to specify config</li>
 					</ul>
 					<h3>Current Features</h3>
@@ -59,17 +55,21 @@ export const AppParent = () => {
 								<li>Password is hashed, of course</li>
 								<li>Having an AppID allows us to use the same system for multiple simple apps
 									but restrict access on a per-app basis; i.e., one account doesn&apos;t give you access to all the
-									apps</li>
+									apps, but your account is still unique in the database</li>
 								<li>Returns confirmation or error</li>
 							</ul>
 						</li>
 						<li>Login User (authenticate previously-registered user for a specified app)
 							<ul>
-								<li>Returns JWT access token good for one hour</li>
+								<li>Returns confirmation + JWT access token good for one hour, or error</li>
 							</ul>
 						</li>
-						<li>Verify User (verify previously-authenticated user&apos;s token is still valid, e.g.,
-							before allowing access to something restricted)</li>
+						<li>Verify User (verify that previously-authenticated user&apos;s token is still valid, e.g.,
+							before allowing access to something restricted)
+							<ul>
+								<li>Returns confirmation + same (not updated) JWT token, or error</li>
+							</ul>
+						</li>
 					</ul>
 					<h3>Definitely-Needed Features</h3>
 					<ul>
@@ -89,6 +89,9 @@ export const AppParent = () => {
 						<li>Allow username other than email address</li>
 						<li>Allow user to update account</li>
 						<li>Allow user to delete account (unregister for specified app)</li>
+						<li>Allow collecting additional data on registration</li>
+						<li>Allow people who don't realize they're using two separate Abt simple apps to register the same username and a different password - because they won't know that their username / email address is already in the db with a different password</li>
+						<li>Allow updating user account data</li>
 					</ul>
 				</SlDetails>
 			</div >
