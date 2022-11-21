@@ -11,7 +11,7 @@ export const returnNewToken = (userInfo) => {
 		expiresIn: '1h',
 	});
 };
-export const returnTokenIsVerified = (username, token) => {
+export const returnTokenIsVerified = (appID, username, token) => {
 	// return the result of verifying the token
 	return jwt.verify(
 		token,
@@ -32,6 +32,14 @@ export const returnTokenIsVerified = (username, token) => {
 				return {
 					'verified': false,
 					'message': 'Invalid user',
+				};
+			}
+			// if the appID does not match the appID in the token
+			if (response.appID !== appID) {
+				// return a reponse object indicating that the token is not valid
+				return {
+					'verified': false,
+					'message': 'Invalid appID',
 				};
 			}
 			// return that the token is valid

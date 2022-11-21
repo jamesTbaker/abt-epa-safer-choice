@@ -94,9 +94,9 @@ export const registerUser = async ({ appID, username, password }) => {
 		}
 	}
 };
-export const loginUser = async ({ username, password }) => {
+export const loginUser = async ({ appID, username, password }) => {
 	// if any of the required fields are missing
-	if (!username || !password) {
+	if (!appID || !username || !password) {
 		// return a reponse object
 		return {
 			'success': false,
@@ -113,31 +113,42 @@ export const loginUser = async ({ username, password }) => {
 			'message': 'User not found',
 		};
 	}
-	// if the password does not match
-	if (!bcrypt.compareSync(password, userQueryResult.item.password)) {
+	// otherwise
+	else {
+		// if the user is not registered for this app
+		if (!userQueryResult.item.registeredApps.includes(appID)) {
+			// return a response object
+			return {
+				'success': false,
+				'message': 'User exists but not registered for this app',
+			};
+		}
+		// if the password does not match
+		if (!bcrypt.compareSync(password, userQueryResult.item.password)) {
+			// return a response object
+			return {
+				'success': false,
+				'message': 'Incorrect password',
+			};
+		}
+		// construct user info object
+		const userInfo = {
+			appID,
+			username,
+		};
+		// generate a token
+		const token = returnNewToken(userInfo);
 		// return a response object
 		return {
-			'success': false,
-			'message': 'Incorrect password',
+			'success': true,
+			'user': userInfo,
+			token,
 		};
 	}
-	// construct user info object
-	const userInfo = {
-		username: userQueryResult.item.username,
-		name: userQueryResult.item.name,
-	};
-	// generate a token
-	const token = returnNewToken(userInfo);
-	// return a response object
-	return {
-		'success': true,
-		'user': userInfo,
-		token,
-	};
 };
-export const verifyToken = async ({ username, token }) => {
+export const verifyToken = async ({ appID, username, token }) => {
 	// if any of the required fields are missing
-	if (!username || !token) {
+	if (!appID || !username || !token) {
 		// return a reponse object
 		return {
 			'success': false,
@@ -145,7 +156,7 @@ export const verifyToken = async ({ username, token }) => {
 		};
 	}
 	// attempt to verify the token
-	const tokenVerificationResult = returnTokenIsVerified(username, token);
+	const tokenVerificationResult = returnTokenIsVerified(appID, username, token);
 	// if the token is not verified and there is an error
 	if (
 		!tokenVerificationResult.verified &&
