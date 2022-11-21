@@ -1,4 +1,4 @@
-@baseURI = https://tigq10pvb0.execute-api.us-east-1.amazonaws.com/prod/simple-apps/user-authentication
+@baseURI = https://gdm3dzyyac.execute-api.us-east-1.amazonaws.com/prod/simple-apps/user-authentication
 
 
 #########
@@ -6,8 +6,8 @@
 POST {{baseURI}}/register
 
 {
-    "appID": "abc123",
-    "username": "hi2@jbkr.me",
+    "appID": "1",
+    "username": "hi@jbkr.me",
     "password": "password"
 }
 
@@ -16,8 +16,8 @@ POST {{baseURI}}/register
 POST {{baseURI}}/login
 
 {
-    "appID": "abc123",
-    "username": "hi2@jbkr.me",
+    "appID": "1",
+    "username": "hi@jbkr.me",
     "password": "password"
 }
 
@@ -26,7 +26,7 @@ POST {{baseURI}}/login
 POST {{baseURI}}/verify
 
 {
-    "appID": "abc123",
+    "appID": "1",
     "username": "hi2@jbkr.me",
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhpMkBqYmtyLm1lIiwibmFtZSI6IkphbWVzIEJha2VyIiwiaWF0IjoxNjY4ODgzMDk3LCJleHAiOjE2Njg4ODY2OTd9.GKQipdOJH4fSz0ii43NwjubkhTFjv1GeQe4Z705Jjx0"
 }

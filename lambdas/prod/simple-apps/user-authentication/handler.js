@@ -2,7 +2,7 @@ const UserAuthentication = require('user-authentication');
 const LambdaUtilities = require('lambda-utilities');
 
 module.exports = {
-	'handleReturnUserRegisterRequest': async (event, context) => {
+	'handleRegisterUserRequest': async (event, context) => {
 		// attempt to do what was requested
 		try {
 			// assign result to constant
@@ -37,7 +37,7 @@ module.exports = {
 			return responseObject;
 		}
 	},
-	'handleReturnUserVerifyRequest': async (event, context) => {
+	'handleVerifyUserRequest': async (event, context) => {
 		// attempt to do what was requested
 		try {
 			// assign result to constant
@@ -72,7 +72,7 @@ module.exports = {
 			return responseObject;
 		}
 	},
-	'handleReturnUserLoginRequest': async (event, context) => {
+	'handleLoginUserRequest': async (event, context) => {
 		// attempt to do what was requested
 		try {
 			// assign result to constant

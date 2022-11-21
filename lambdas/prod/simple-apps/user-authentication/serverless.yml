@@ -14,22 +14,22 @@ custom:
 
 
 functions:
-  handleReturnUserRegisterRequest:
-    handler: handler.handleReturnUserRegisterRequest
+  handleRegisterUserRequest:
+    handler: handler.handleRegisterUserRequest
     events:
       - http:
           path: ${self:custom.file.endpoints.${self:service}.${self:app}.register}
           method: post
           cors: true
-  handleReturnUserVerifyRequest:
-    handler: handler.handleReturnUserVerifyRequest
+  handleVerifyUserRequest:
+    handler: handler.handleVerifyUserRequest
     events:
       - http:
           path: ${self:custom.file.endpoints.${self:service}.${self:app}.verify}
           method: post
           cors: true
-  handleReturnUserLoginRequest:
-    handler: handler.handleReturnUserLoginRequest
+  handleLoginUserRequest:
+    handler: handler.handleLoginUserRequest
     events:
       - http:
           path: ${self:custom.file.endpoints.${self:service}.${self:app}.login}

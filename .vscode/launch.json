@@ -2,7 +2,7 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "user-authentication",
+			"name": "m--user-authentication",
 			"type": "node",
 			"request": "launch",
 			"skipFiles": [
@@ -13,7 +13,7 @@
 			"console": "integratedTerminal"
 		},
 		{
-			"name": "lambda-utilities",
+			"name": "m--lambda-utilities",
 			"type": "node",
 			"request": "launch",
 			"skipFiles": [
